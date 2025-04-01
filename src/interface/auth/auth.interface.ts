@@ -6,10 +6,15 @@ export interface ILogin {
 }
 
 export interface ISignUp {
-    name: string;
+    firstName: string;
+    lastName: string;
     email: string;
     password: string;
-    phonenumber:number;
-    gender?: "Male" | "Female";
+    phoneNumber:string;
+    gender?: {
+        lable?: string, 
+        value?:string,
+    },
+    confirm_password: string;
     
 }

@@ -12,8 +12,8 @@ const SignupPage = () => {
     handleSubmit,
     formState: { errors },
   } = useForm<ISignUp>({
+    
     defaultValues: {
-      name: "",
       email: "",
       password: "",
     },
@@ -34,26 +34,6 @@ const SignupPage = () => {
         <h1 className="text-3xl font-bold text-center text-gray-800 mb-2">
           Create an Account
         </h1>
-
-        {/* Name Field */}
-        <div className="flex flex-col gap-1">
-          <div className="flex items-center">
-            <label className="text-base tracking-wide font-semibold text-gray-800">
-              User Name
-            </label>
-            <LuAsterisk className="text-xs text-red-500 ml-1" />
-          </div>
-          <input
-            {...register("name")}
-            className={`text-lg border ${errors.name ? "border-red-500 text-red-500" : "border-gray-300"} p-2 rounded-md placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-400 transition`}
-            placeholder="Enter Username"
-          />
-          {errors.name && (
-            <p className="text-xs text-red-500">
-              {errors.name.message}
-            </p>
-          )}
-        </div>
 
         {/* Email Field */}
         <div className="flex flex-col gap-1">
@@ -96,7 +76,7 @@ const SignupPage = () => {
           )}
         </div>
 
-        {/* Phone Number */}
+        {/* Phone Number
         <div className="flex flex-col gap-1">
           <div className="flex items-center">
             <label className="text-base tracking-wide font-semibold text-gray-800">
@@ -114,9 +94,9 @@ const SignupPage = () => {
               {errors.phonenumber.message}
             </p>
           )}
-        </div>
+        </div> */}
 
-        {/* Gender Selection */}
+        {/* Gender Selection
         <div className="flex flex-col gap-2">
           <label className="text-base tracking-wide font-semibold text-gray-800">
             Select Gender:
@@ -141,7 +121,7 @@ const SignupPage = () => {
               <span>Female</span>
             </label>
           </div>
-        </div>
+        </div> */}
 
         {/* Submit Button */}
         <button
