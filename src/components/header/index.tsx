@@ -3,15 +3,27 @@ import React from 'react'
 import { CiHeart } from "react-icons/ci";
 import { BsCart3 } from "react-icons/bs";
 import { IoPersonOutline } from "react-icons/io5";
+import Image from 'next/image';
+
 const Header = () => {
     return (
-        <div className='tracking-wider flex shadow justify-between items-center py-6 px-10'>
+        <div className='tracking-wider flex shadow justify-between items-center py-2 px-6 sm:px-8 h-20'>
             {/* logo */}
-            <div>
-                <p className='font-bold text-xl text-blue-500'>LOGO</p>
+            <div className="w-[120px]"> 
+                <Link href="/">
+                    <Image 
+                        src="/logo.png"  
+                        alt="Nepali Bazar Logo"
+                        width={120}
+                        height={36}
+                        className="object-contain w-full h-20" 
+                        priority
+                    />
+                </Link>
             </div>
-            {/* center section  */}
-            <div className='flex gap-5 text-lg'>
+
+             {/* center section  */}
+             <div className='flex gap-5 text-lg'>
                 <div>
                     <Link href={'/'}>
                         <p className=' transition-all duration-300 hover:text-blue-600 font-semibold'>Home</p>
@@ -29,27 +41,21 @@ const Header = () => {
                 </div>
 
             </div>
-            {/* right section */}
-            <div className='flex gap-4'>
-                <div>
-                    <Link href='/wishlist'>
-                        <CiHeart className='text-gray-600 text-bold transition-all duration-300 hover:scale-[1.1]' size={28} />
-                    </Link>
-                </div>
-                <div>
-                    <Link href='/cart'>
-                        <BsCart3 className='text-gray-600 text-bold transition-all duration-300 hover:scale-[1.1]' size={24} />
-                    </Link>
-                </div>
-                <div>
-                    <Link href='/login'>
-                        <IoPersonOutline className='text-gray-600 text-bold transition-all duration-300 hover:scale-[1.1]' size={24} />
-                    </Link>
-                </div>
 
+            {/* right section */}
+            <div className='flex gap-3'>
+                <Link href='/wishlist'>
+                    <CiHeart className='text-gray-600 transition-all duration-300 hover:scale-[1.1]' size={24} />
+                </Link>
+                <Link href='/cart'>
+                    <BsCart3 className='text-gray-600 transition-all duration-300 hover:scale-[1.1]' size={20} />
+                </Link>
+                <Link href='/login'>
+                    <IoPersonOutline className='text-gray-600 transition-all duration-300 hover:scale-[1.1]' size={20} />
+                </Link>
             </div>
         </div>
     )
 }
 
-export default Header
+export default Header;

@@ -4,6 +4,7 @@ import React from 'react'
 import Header from '../header';
 import Footer from '../ui/footer';
 import { usePathname } from 'next/navigation'
+import CartPage from '../auth/user-cart/cart';
 
 interface IProps {
     children:React.ReactNode;
@@ -12,7 +13,7 @@ interface IProps {
 const Layout:React.FC<IProps> = ({children}) => {
 
   const pathname = usePathname();
-  const hideNav = pathname === "/login" || pathname === "/signup";
+  const hideNav = pathname === "/login" || pathname === "/signup" ;
 
   return (
     
@@ -28,6 +29,7 @@ const Layout:React.FC<IProps> = ({children}) => {
           {/* footer */}
             {!hideNav && <Footer />}
           </div>
+          
   )};
 
 export default Layout;
