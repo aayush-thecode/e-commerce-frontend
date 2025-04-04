@@ -1,5 +1,7 @@
-import LoginForm from "@/components/auth/login-form"
+import LoginForm from "../../components/auth/login-form"
 import Link from "next/link"
+import * as React from 'react';
+
 
 const Page = () => {
     return (

@@ -1,16 +1,17 @@
 "use client"
+import * as React from 'react';
 
-import { ILogin } from "@/interface/auth/auth.interface";
+import { ILogin } from "../../interface/auth/auth.interface";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { SubmitHandler, useForm } from "react-hook-form";
 import { LuAsterisk } from "react-icons/lu";
-import { loginSchema } from "@/schemas/login.schema";
+import { loginSchema } from "../../schemas/login.schema";
 import toast from 'react-hot-toast';
 
 import {
   useMutation,
 } from '@tanstack/react-query'
-import { login } from "@/api/auth";
+import { login } from "../../api/auth";
 
 const loginPage = () => {
   const {
@@ -97,10 +98,11 @@ const loginPage = () => {
 
         {/* Submit Button */}
         <button
+          disabled={isPending}
           type="submit"
-          className="text-lg font-semibold px-4 py-3 bg-gradient-to-r from-blue-500 to-indigo-600 rounded-md text-white cursor-pointer hover:bg-blue-700 transition-all duration-300 mt-2"
+          className="text-lg font-semibold px-4 py-3 bg-gradient-to-r from-blue-500 to-indigo-600 rounded-md text-white cursor-pointer hover:bg-blue-700 transition-all duration-300 mt-2 disabled:cursor-not-allowed"
         >
-          Login
+          {isPending? 'Login...':"Login"}
         </button>
       </div>
     </form>

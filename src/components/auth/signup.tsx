@@ -1,17 +1,18 @@
 'use client'
 
-import { ISignUp } from "@/interface/auth/auth.interface"
+import * as React from 'react';
+import { ISignUp } from "../../interface/auth/auth.interface"
 import { useForm, SubmitHandler } from "react-hook-form"
 import { yupResolver } from "@hookform/resolvers/yup"
 import { LuAsterisk } from "react-icons/lu";
 import GenderInput from "./gender-input"
-import { signupSchema } from "@/schemas/signup"
+import { signupSchema } from "../../schemas/signup"
 import toast from "react-hot-toast";
 
 import {
     useMutation,
 } from '@tanstack/react-query'
-import { signup } from "@/api/auth";
+import { signup } from "../../api/auth";
 
 
 
@@ -31,7 +32,7 @@ const signUp = () => {
         mode: 'all'
     })
 
-    //Mutation 
+    {/* using mutation */}
     const {mutate, error, isPending} = useMutation({
         mutationFn:signup,
         onSuccess:(response) => {
@@ -153,8 +154,12 @@ const signUp = () => {
                     <GenderInput control={control} />
                 </div>
 
-                <button className='text-lg font-semibold px-4 py-3 bg-blue-500 rounded-md text-white cursor-pointer hover:bg-blue-700 transition-all duration-300' type='submit'>
-                    Sign Up
+                <button 
+                disabled = {isPending}  
+                className='text-lg font-semibold px-4 py-3 bg-blue-500 rounded-md text-white cursor-pointer hover:bg-blue-700 transition-all duration-300 disabled:cursor-not-allowed '
+                
+                type='submit'>
+                    {isPending ? "Signing Up": "Sign Up"} 
                 </button>
             </div>
         </form>
