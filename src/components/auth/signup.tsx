@@ -6,6 +6,14 @@ import { yupResolver } from "@hookform/resolvers/yup"
 import { LuAsterisk } from "react-icons/lu";
 import GenderInput from "./gender-input"
 import { signupSchema } from "@/schemas/signup"
+import toast from "react-hot-toast";
+
+import {
+    useMutation,
+} from '@tanstack/react-query'
+import { signup } from "@/api/auth";
+
+
 
 const signUp = () => {
 
@@ -23,10 +31,24 @@ const signUp = () => {
         mode: 'all'
     })
 
-    console.log(errors)
+    //Mutation 
+    const {mutate, error, isPending} = useMutation({
+        mutationFn:signup,
+        onSuccess:(response) => {
+            //invalidate and refetched 
+            console.log('response', response);
+            toast.success("Signup Successfull!")
+        },
 
-    const onSubmit: SubmitHandler<ISignUp> = (data) => {
-        console.log(data)
+        onError:(error) => {
+            toast.error("Signup Failed!")
+        }
+    })
+
+
+    const onSubmit: SubmitHandler<ISignUp> = async (data) => {
+        console.log(data);
+        await mutate(data);
     }
 
     return (

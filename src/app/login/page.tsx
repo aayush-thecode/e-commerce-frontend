@@ -8,11 +8,11 @@ const Page = () => {
             <h1 className="text-2xl font-bold  text-center tracking-widest mb-4">Login </h1>
             <LoginForm />
             <div className='mt-4 tracking-wider'>
-                <p>Don&apos;t have an account? <Link href='/sign-up'><span className="text-blue-600 font-semibold">Register</span></Link></p>
+                <p>Don&apos;t have an account? <Link href='/signup'><span className="text-blue-600 font-semibold">Register</span></Link></p>
             </div>
         </div>
     </div>
     )
 }
 
-export default Page
+export default Page;

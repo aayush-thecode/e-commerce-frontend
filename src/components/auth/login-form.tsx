@@ -1,28 +1,49 @@
 "use client"
 
-import { ISignUp } from "@/interface/auth/auth.interface";
+import { ILogin } from "@/interface/auth/auth.interface";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { SubmitHandler, useForm } from "react-hook-form";
 import { LuAsterisk } from "react-icons/lu";
-import { signupSchema } from "@/schemas/signup";
+import { loginSchema } from "@/schemas/login.schema";
+import toast from 'react-hot-toast';
 
-const SignupPage = () => {
+import {
+  useMutation,
+} from '@tanstack/react-query'
+import { login } from "@/api/auth";
+
+const loginPage = () => {
   const {
     register,
     handleSubmit,
     formState: { errors },
-  } = useForm<ISignUp>({
+  } = useForm<ILogin>({
     
     defaultValues: {
       email: "",
       password: "",
     },
-    resolver: yupResolver(signupSchema),
+    resolver: yupResolver(loginSchema),
     mode: "all",
   });
 
-  const onSubmit: SubmitHandler<ISignUp> = (data) => {
+  //Mutation 
+  const { mutate, error, isPending } = useMutation({
+    mutationFn: login,
+    onSuccess: (response) => {
+      //Invalidate and refetch 
+      console.log('response', response);
+      toast.success("Login Successfull!")
+    },
+
+    onError:(error) => {
+      toast.error('Login Failed!')
+    }
+  })
+
+  const onSubmit: SubmitHandler<ILogin> = async (data) => {
     console.log(data);
+    await mutate(data);
   };
 
   return (
@@ -76,63 +97,16 @@ const SignupPage = () => {
           )}
         </div>
 
-        {/* Phone Number
-        <div className="flex flex-col gap-1">
-          <div className="flex items-center">
-            <label className="text-base tracking-wide font-semibold text-gray-800">
-              Phone Number
-            </label>
-            <LuAsterisk className="text-xs text-red-500 ml-1" />
-          </div>
-          <input
-            {...register("phonenumber")}
-            className={`text-lg border ${errors.phonenumber ? "border-red-500 text-red-500" : "border-gray-300"} p-2 rounded-md placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-400 transition`}
-            placeholder="Enter your phone number"
-          />
-          {errors.phonenumber && (
-            <p className="text-xs text-red-500">
-              {errors.phonenumber.message}
-            </p>
-          )}
-        </div> */}
-
-        {/* Gender Selection
-        <div className="flex flex-col gap-2">
-          <label className="text-base tracking-wide font-semibold text-gray-800">
-            Select Gender:
-          </label>
-          <div className="flex space-x-4">
-            <label className="flex items-center space-x-2 cursor-pointer">
-              <input 
-                type="radio" 
-                {...register("gender")} 
-                value="Male" 
-                className="accent-blue-500" 
-              />
-              <span>Male</span>
-            </label>
-            <label className="flex items-center space-x-2 cursor-pointer">
-              <input 
-                type="radio" 
-                {...register("gender")} 
-                value="Female" 
-                className="accent-blue-500" 
-              />
-              <span>Female</span>
-            </label>
-          </div>
-        </div> */}
-
         {/* Submit Button */}
         <button
           type="submit"
           className="text-lg font-semibold px-4 py-3 bg-gradient-to-r from-blue-500 to-indigo-600 rounded-md text-white cursor-pointer hover:bg-blue-700 transition-all duration-300 mt-2"
         >
-          Sign Up
+          Login
         </button>
       </div>
     </form>
   );
 };
 
-export default SignupPage;
+export default loginPage;
