@@ -41,8 +41,8 @@ const signUp = () => {
             toast.success("Signup Successfull!")
         },
 
-        onError:(error) => {
-            toast.error("Signup Failed!")
+        onError:(error: any) => {
+            toast.error(error?.response?.data.message ?? "Signup Failed!")
         }
     })
 

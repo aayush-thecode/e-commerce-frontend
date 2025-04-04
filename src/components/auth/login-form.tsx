@@ -37,8 +37,8 @@ const loginPage = () => {
       toast.success("Login Successfull!")
     },
 
-    onError:(error) => {
-      toast.error('Login Failed!')
+    onError:(error: any) => {
+      toast.error(error?.response?.data.message ?? 'Login Failed!')
     }
   })
 
