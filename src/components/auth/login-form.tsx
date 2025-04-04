@@ -52,9 +52,7 @@ const loginPage = () => {
       className="w-full max-w-md"
     >
       <div className="flex flex-col gap-6">
-        <h1 className="text-3xl font-bold text-center text-gray-800 mb-2">
-          Create an Account
-        </h1>
+        <h1 className="text-3xl font-bold text-center text-gray-800 mb-2"> Login to your Account </h1>
 
         {/* Email Field */}
         <div className="flex flex-col gap-1">
