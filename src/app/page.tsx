@@ -1,12 +1,15 @@
 import ProductCard from "@/components/auth/product-cart/product-cart";
-import CartPage from "@/components/auth/user-cart/cart";
+import Hero from './../components/home/hero';
+import SummerProducts from './../components/home/product-list/summer-sale';
+import TrendingProducts from "@/components/home/product-list/Trending-sale";
+
 
 export default function Home() {
   return (
     <main>
-        <h1 className="mt-7"> 
-
-        </h1>
+        <Hero/>
+        <TrendingProducts/>
+        <SummerProducts/>
         <ProductCard/>
         {/* <CartPage/> */}
     </main>

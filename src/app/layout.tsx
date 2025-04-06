@@ -34,7 +34,7 @@ export default function RootLayout({
 
         <Layout>
         {children}
-        <Toaster/> //using toaster
+        <Toaster/> {/* using Toaster*/}
         </Layout>                   
         </Providers>
       </body>
