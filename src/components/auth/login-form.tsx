@@ -12,8 +12,13 @@ import {
   useMutation,
 } from '@tanstack/react-query'
 import { login } from "../../api/auth";
+import { useRouter } from 'next/navigation'
+
+
 
 const loginPage = () => {
+  const router = useRouter()
+
   const {
     register,
     handleSubmit,
@@ -35,6 +40,7 @@ const loginPage = () => {
       //Invalidate and refetch 
       console.log('response', response);
       toast.success("Login Successfull!")
+      router.replace('/')
     },
 
     onError:(error: any) => {

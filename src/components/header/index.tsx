@@ -14,13 +14,14 @@ const Header = () => {
                     <Image 
                         src="/logo.png"  
                         alt="Nepali Bazar Logo"
-                        width={120}
-                        height={36}
+                        width={1000}
+                        height={1000}
                         className="object-contain w-full h-20" 
                         priority
                     />
                 </Link>
             </div>
+
 
              {/* center section  */}
              <div className='flex gap-5 text-lg'>

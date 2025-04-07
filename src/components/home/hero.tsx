@@ -9,8 +9,8 @@ const Hero = () => {
     <div className='absolute inset-0 h-full'>
         <Image
         src='/hero/cover.png'
-        height = {10000}
-        width= {10000}
+        height = {1000}
+        width= {1000}
         className='w-full h-full'
         alt='hero cover image'
 
@@ -27,7 +27,7 @@ const Hero = () => {
                     Discover your perfect style with just a click!
                 </h1>
                 <p className='flex justify-center text-xl mt-1'>
-                    Unbeatable deals and the latest trends are waiting for you....
+                Discover authentic Nepali products with up to 50% off
                 </p>
             </div>
             <div className=' flex justify-center mt-2'>

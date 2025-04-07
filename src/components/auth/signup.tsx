@@ -13,10 +13,14 @@ import {
     useMutation,
 } from '@tanstack/react-query'
 import { signup } from "../../api/auth";
+import { useRouter } from 'next/navigation';
 
 
 
 const signUp = () => {
+
+  const router = useRouter()
+
 
     const { control, register, handleSubmit, formState: { errors } } = useForm<ISignUp>({
         defaultValues: {
@@ -39,6 +43,7 @@ const signUp = () => {
             //invalidate and refetched 
             console.log('response', response);
             toast.success("Signup Successfull!")
+            router.replace('/login')
         },
 
         onError:(error: any) => {

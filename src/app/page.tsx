@@ -8,10 +8,12 @@ export default function Home() {
   return (
     <main>
         <Hero/>
+        <div className="px-6">
         <TrendingProducts/>
         <SummerProducts/>
-        <ProductCard/>
+        {/* <ProductCard/> */}
         {/* <CartPage/> */}
+        </div>
     </main>
   );
 }
