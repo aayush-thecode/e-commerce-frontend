@@ -7,7 +7,7 @@ import Image from 'next/image';
 
 const Header = () => {
     return (
-        <div className='tracking-wider flex shadow justify-between items-center py-2 px-6 sm:px-8 h-20'>
+        <div className='tracking-wider flex shadow justify-between items-center py-2 px-6 sm:px-8 h-20 bg-white'>
             {/* logo */}
             <div className="w-[120px]"> 
                 <Link href="/">

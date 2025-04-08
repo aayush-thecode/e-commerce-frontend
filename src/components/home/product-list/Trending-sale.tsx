@@ -40,17 +40,23 @@ const products = [
 ]
 
 const TrendingProducts = () => {
-  const { isPending, data, error } = useQuery({
+  const { isPending, data, isError, error } = useQuery({
     queryKey: ['trending-products'],
     queryFn: getAllProducts,
   })
   console.log('trending', data, isPending)
+
   useEffect(() => {
-    toast.error(error?.message ?? 'Something went wrong')
-  })
+    toast.error
+    {
+      (error?.message ?? 'Something went wrong')
+    }
+  },[error,isError])
+
   return (
-    <div>
-        <ProductList title='Trending products' products ={products} isLoading={isPending} 
+    <div className='mt-10'>
+
+        <ProductList title='Trending products' products ={data?.data?.data?? []} isLoading={isPending} 
 
         />
     </div>

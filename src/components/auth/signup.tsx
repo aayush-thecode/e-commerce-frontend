@@ -47,7 +47,8 @@ const signUp = () => {
         },
 
         onError:(error: any) => {
-            toast.error(error?.response?.data.message ?? "Signup Failed!")
+            console.log('register', error)
+            toast.error(error?.message ?? "Signup Failed!")
         }
     })
 
@@ -172,4 +173,4 @@ const signUp = () => {
     )
 }
 
-export default signUp
+export default signUp;

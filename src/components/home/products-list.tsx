@@ -10,7 +10,7 @@ interface IProp {
 
 const ProductList: React.FC<IProp> = ({title = 'Most Sale', products, isLoading=false}) => {
   return (
-    <div className='w-full '>
+    <div className='w-full px-4'>
         <div>
             <h1 className='font-bold text-2xl tracking-wider font-serif flex justify-center mt-10'>{title}</h1>
         </div>

@@ -4,7 +4,6 @@ import React from 'react'
 import Header from '../header';
 import Footer from '../footer/footer';
 import { usePathname } from 'next/navigation'
-import CartPage from '../auth/user-cart/cart';
 
 interface IProps {
     children:React.ReactNode;

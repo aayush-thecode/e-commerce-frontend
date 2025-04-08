@@ -108,7 +108,7 @@ const loginPage = () => {
           type="submit"
           className="text-lg font-semibold px-4 py-3 bg-gradient-to-r from-blue-500 to-indigo-600 rounded-md text-white cursor-pointer hover:bg-blue-700 transition-all duration-300 mt-2 disabled:cursor-not-allowed"
         >
-          {isPending? 'Login...':"Login"}
+          {isPending? 'Loggin...':"Login"}
         </button>
       </div>
     </form>

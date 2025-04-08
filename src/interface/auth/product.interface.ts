@@ -1,9 +1,9 @@
 export interface IProduct {
-    name: string;
+            name: string;
             coverImage:string;
             price:string;
             description?: string;
-            id: string;
+            _id: string;
             images?:string[];
             averageRating?: number;
             createdBy?:any;
