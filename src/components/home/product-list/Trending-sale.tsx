@@ -55,10 +55,10 @@ const TrendingProducts = () => {
 
   return (
     <div className='mt-10'>
-
-        <ProductList title='Trending products' products ={data?.data?.data?? []} isLoading={isPending} 
-
-        />
+      {
+        <ProductList title='Trending products' products ={data?.data?.data?? []} isLoading={isPending}/>
+      }
+        
     </div>
   )
 }

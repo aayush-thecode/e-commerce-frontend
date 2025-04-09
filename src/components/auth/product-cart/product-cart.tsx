@@ -14,6 +14,7 @@ const ProductCard: React.FC<IProp> = ({ product }) => {
 
   return (
     <div className="overflow-hidden tracking-wider border border-gray-300 w-fit rounded-xl ml-7 bg-amber-50">
+
       {/* image */}
       <div className="h-fit w-60 aspect-square p-3 transition-all duration-300 hover:scale-[1.1]">
         <Link href={`/product/${_id}`}>
@@ -31,7 +32,7 @@ const ProductCard: React.FC<IProp> = ({ product }) => {
         <span className="text-[15px]">रु.{price}</span>
       </div>
       <div>
-        <Link href={`/product/${_id}`}>
+        <Link href={`/product/${product._id}`}>
           <button className="cursor-pointer py-3 w-full text-[14px] bg-black text-white font-semibold hover:scale-[1.1]">
             View Detail
           </button>

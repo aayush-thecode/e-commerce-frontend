@@ -1,10 +1,10 @@
 export interface IProduct {
-            name: string;
-            coverImage:string;
-            price:string;
-            description?: string;
-            _id: string;
-            images?:string[];
-            averageRating?: number;
-            createdBy?:any;
-        }
+    _id:string;
+    name:string;
+    coverImage:string;
+    images?:string[];
+    averageRating?:number;
+    createdBy?:any;
+    price:string;
+    description?:string;
+}
