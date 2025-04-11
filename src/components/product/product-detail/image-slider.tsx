@@ -7,7 +7,7 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Image from 'next/image'
 interface IProps {
-    images:string[]
+    images:string[],
 }
 
 const ImageSlider:React.FC<IProps> = ({images}) =>{
@@ -17,7 +17,7 @@ const ImageSlider:React.FC<IProps> = ({images}) =>{
         speed: 500,
         slidesToShow: 1,
         slidesToScroll: 1,
-        autplay:true,
+        autoplay:true,
         autoplaySpeed: 2000,
         swipeToSlide: true,
       };

@@ -13,7 +13,7 @@ interface IProps {
 const Page:React.FC<IProps> = async ({params}) =>{
     const {id} = await params
     return (
-        <div>
+        <div className="w-full lg:max-w-[1440px] lg:mx-auto">
            <ProductDetail id={id}/>
         </div>
     )

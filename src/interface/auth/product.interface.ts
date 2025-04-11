@@ -3,7 +3,7 @@ export interface IProduct {
     name:string;
     coverImage:string;
     images?:string[];
-    averageRating?:number;
+    averageRating:number;
     createdBy?:any;
     price:string;
     description?:string;
