@@ -24,20 +24,20 @@ const Header = () => {
 
 
              {/* center section  */}
-             <div className='flex gap-5 text-lg'>
+             <div className='flex gap-5 text-xl font-[poppins] '>
                 <div>
                     <Link href={'/'}>
-                        <p className=' transition-all duration-300 hover:text-blue-600 font-semibold'>Home</p>
+                        <p className=' transition-all duration-300 hover:text-orange-600 font-semibold'>Home</p>
                     </Link>
                 </div>
                 <div>
                     <Link href={'/contact-us'}>
-                        <p className=' transition-all duration-300 hover:text-blue-600 font-semibold'>Contact Us</p>
+                        <p className=' transition-all duration-300 hover:text-orange-600 font-semibold'>Contact Us</p>
                     </Link>
                 </div>
                 <div>
                     <Link href={'/about-us'}>
-                        <p className=' transition-all duration-300 hover:text-blue-600 font-semibold'>About Us</p>
+                        <p className=' transition-all duration-300 hover:text-orange-600 font-semibold'>About Us</p>
                     </Link>
                 </div>
 
@@ -46,13 +46,13 @@ const Header = () => {
             {/* right section */}
             <div className='flex gap-3'>
                 <Link href='/wishlist'>
-                    <CiHeart className='text-gray-600 transition-all duration-300 hover:scale-[1.1]' size={24} />
+                    <CiHeart className='text-gray-700 transition-all duration-300 hover:scale-[1.1]' size={24} />
                 </Link>
                 <Link href='/cart'>
-                    <BsCart3 className='text-gray-600 transition-all duration-300 hover:scale-[1.1]' size={20} />
+                    <BsCart3 className='text-gray-700 transition-all duration-300 hover:scale-[1.1]' size={20} />
                 </Link>
                 <Link href='/login'>
-                    <IoPersonOutline className='text-gray-600 transition-all duration-300 hover:scale-[1.1]' size={20} />
+                    <IoPersonOutline className='text-gray-700 transition-all duration-300 hover:scale-[1.1]' size={20} />
                 </Link>
             </div>
         </div>

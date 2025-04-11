@@ -8,15 +8,15 @@ interface IProp{
 
 const ProductTitle: React.FC<IProp> = ({name, rating}) => {
   return (
-    <div>
-        <p>{name}</p>
-        <div>
-        <RatingStar rating={rating}/>
-        <p className='tracking-wider text-sm text-gray-500 flex '>({rating})</p>
 
-     
-        </div>
+    <div className='flex items-center gap-10 mt-4'>
+    <p className='tracking-wider  font-bold text-3xl'>{name}</p>
+    <div className='flex gap-2 items-center font-bold ml-[-25px] font-[times]'>
+        <RatingStar rating={rating}/>
+        <p className='tracking-wider text-sm text-gray-500'>({rating})</p>
     </div>
+    </div>
+        
   )
 }
 

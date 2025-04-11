@@ -1,91 +1,127 @@
-import * as React from 'react';
+'use client';
 
 import Head from 'next/head';
 import Image from 'next/image';
-import Link from 'next/link';
+
+const cartItems = [
+  {
+    id: 1,
+    title: 'Dhaka Topi - Handmade',
+    size: 'M',
+    price: 1500,
+    originalPrice: 1800,
+    image: '/cart/dhaka.svg',
+  },
+  {
+    id: 2,
+    title: 'Handwoven Pashmina Shawl',
+    color: 'Navy Blue',
+    price: 3500,
+    image: '/cart/pashmina.svg',
+  },
+  {
+    id: 3,
+    title: 'Traditional Singing Bowl',
+    size: 'Medium',
+    price: 2800,
+    image: '/cart/singing-bowl.svg',
+  },
+];
 
 const CartPage = () => {
   return (
     <>
       <Head>
         <title>Shopping Cart - Nepali Bazar</title>
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet" />
-        <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet" />
+        <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet" />
       </Head>
 
-      <div className="bg-gray-50 font-sans">
-        {/* Header remains unchanged */}
-
-        <main className="max-w-8xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+      <div className="font-poppins min-h-screen flex-grow">
+        <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
           <div className="lg:grid lg:grid-cols-12 lg:gap-8">
+
+            {/* Cart Items */}
             <div className="lg:col-span-8">
-              <div className="bg-white shadow-sm rounded-lg overflow-hidden">
-                <div className="p-6">
-                  {/* Cart items list */}
-                  <div className="mt-6 space-y-6">
-                    {/* Cart Item 1 */}
-                    <div className="flex items-start space-x-4">
-                      {/* Quantity controls */}
-                      <div className="flex items-center space-x-4">
-                        <div className="flex items-center border rounded-lg">
-                          <button 
-                            aria-label="Decrease quantity"
-                            title="Decrease quantity"
-                            className="px-3 py-1 text-gray-600 hover:text-blue-500"
-                          >
-                            <i className="fas fa-minus" aria-hidden="true"></i>
-                          </button>
-                          <input 
-                            type="text" 
-                            value="1" 
-                            className="w-12 text-center border-x" 
-                            readOnly 
-                            aria-label="Quantity"
-                          />
-                          <button 
-                            aria-label="Increase quantity"
-                            title="Increase quantity"
-                            className="px-3 py-1 text-gray-600 hover:text-blue-500"
-                          >
-                            <i className="fas fa-plus" aria-hidden="true"></i>
-                          </button>
-                        </div>
-                        <button 
-                          aria-label="Remove item"
-                          title="Remove item"
-                          className="text-gray-400 hover:text-blue-500"
-                        >
-                          <i className="fas fa-trash-alt" aria-hidden="true"></i>
-                        </button>
+              <h2 className="text-xl font-semibold mb-4">Shopping Cart ({cartItems.length} items)</h2>
+              <div className="bg-white rounded-lg shadow-sm divide-y">
+
+                {cartItems.map((item) => (
+                  <div key={item.id} className="flex items-start gap-4 p-4">
+                    <Image src={item.image} alt={item.title} width={80} height={80} className="rounded" />
+                    <div className="flex-1">
+                      <h3 className="text-md font-semibold">{item.title}</h3>
+                      {item.size && <p className="text-sm text-gray-500">Size: {item.size}</p>}
+                      {item.color && <p className="text-sm text-gray-500">Color: {item.color}</p>}
+                      <div className="mt-1 flex items-center space-x-2">
+                        <span className="text-gray-800 font-medium">NPR {item.price.toLocaleString()}</span>
+                        {item.originalPrice && (
+                          <span className="line-through text-sm text-gray-400">NPR {item.originalPrice.toLocaleString()}</span>
+                        )}
                       </div>
                     </div>
-
-                    {/* Repeat similar button fixes for other cart items */}
+                    <div className="flex flex-col items-end gap-2">
+                      <div className="flex items-center border rounded-md">
+                        <button className="px-3 py-1 text-gray-600 hover:text-orange-500">-</button>
+                        <input
+                          type="text"
+                          value="1"
+                          readOnly
+                          aria-label="Quantity"
+                          className="w-10 text-center border-x"
+                        />
+                        <button className="px-3 py-1 text-gray-600 hover:text-orange-500">+</button>
+                      </div>
+                      <button className="text-gray-400 hover:text-red-500 text-lg">
+                        <i className="fas fa-trash-alt" />
+                      </button>
+                    </div>
                   </div>
-                </div>
+                ))}
               </div>
             </div>
 
-            <div className="lg:col-span-4 mt-8 lg:mt-0">
-              <div className="bg-white shadow-sm rounded-lg sticky top-24">
-                <div className="p-6">
-                  {/* Checkout button */}
-                  <div className="mt-6">
-                    <button 
-                      aria-label="Proceed to checkout"
-                      title="Proceed to checkout"
-                      className="w-full bg-blue-500 text-white py-3 font-medium hover:bg-blue-600 transition-colors rounded-lg"
-                    >
-                      Proceed to Checkout
-                    </button>
-                  </div>
+            {/* Order Summary */}
+            <div className="lg:col-span-4 mt-8 lg:mt-11">
+              <div className="bg-white rounded-lg shadow-sm p-6 sticky top-24">
+                <h3 className="text-lg font-semibold mb-4">Order Summary</h3>
+                <div className="flex justify-between mb-2">
+                  <span>Subtotal</span>
+                  <span>NPR 7,800</span>
+                </div>
+                <div className="flex justify-between mb-2">
+                  <span>Shipping</span>
+                  <span className="text-green-600">Free</span>
+                </div>
+                <hr className="my-2" />
+                <div className="flex justify-between font-semibold text-lg mb-4">
+                  <span>Total</span>
+                  <span>NPR 7,800</span>
+                </div>
+                <label className="flex items-center mb-4">
+                  <input type="checkbox" className="mr-2" defaultChecked />
+                  Cash on Delivery
+                </label>
+                <button className="w-full bg-orange-500 hover:bg-orange-600 transition-colors text-white font-medium py-3 rounded-lg">
+                  Proceed to Checkout
+                </button>
+                <div className="mt-4 flex justify-between text-sm text-gray-500">
+                  <span><i className="fas fa-lock mr-1" />Secure Checkout</span>
+                  <span><i className="fas fa-shield-alt mr-1" />100% Authentic</span>
                 </div>
               </div>
             </div>
           </div>
         </main>
+
+
       </div>
+
+      {/* Footer */}
+        <footer className="border-t border-b border-gray-300 mt-12 bg-white shadow-sm">
+        <div className="flex justify-center py-6">
+        <p className="text-sm text-gray-600">© 2024 Nepali Bazar. All rights reserved.</p>
+        </div>
+        </footer>
     </>
   );
 };

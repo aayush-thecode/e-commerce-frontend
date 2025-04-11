@@ -7,7 +7,6 @@ import React, { useEffect } from 'react'
 import toast from 'react-hot-toast'
 import ImageSlider from './product-detail/image-slider';
 import ProductDetails from './product-detail/product-details';
-import CartPage from '../../app/cart/page'
 import { IProduct } from '@/interface/auth/product.interface'
 import { RatingStar } from '../ui/rating-star'
 
@@ -28,9 +27,7 @@ const product = {
     images:['/products/dell.webp','/products/dell.webp','/products/dell.webp',],
     price:'1000',
     averageRating: 3.5,
-    description:`Lorem ipsum dolor sit amet consectetur, adipisicing elit. Tenetur, expedita? Amet rem itaque
-        facilis reprehenderit suscipit culpa cupiditate placeat facere, natus, nemo sequi fugiat alias
-        modi dolorem. Natus, nisi culpa!`,
+    description:` Experience powerful performance and sleek design with the all-new UltraBook X15. Featuring a 12th Gen Intel® Core™ i7 processor, 16GB of DDR5 RAM, and a blazing-fast 512GB SSD, this laptop is built for multitasking, productivity, and seamless everyday computing. The 15.6" Full HD IPS display delivers vibrant colors and wide viewing angles, making it perfect for both work and entertainment. With its lightweight aluminum body, backlit keyboard, and all-day battery life, the UltraBook X15 is your perfect companion — whether you’re working from home, on campus, or on the go.`,
 
 }
 
@@ -60,8 +57,9 @@ const ProductDetail:React.FC<IProp> = ({id}) => {
             </div>
 
             {/* Right Side: Product Details */}
-            
+            <div className='flex-1'>
             <ProductDetails product={product}/>
+            </div>
             
     </div>
   )
