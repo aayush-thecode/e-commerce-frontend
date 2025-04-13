@@ -37,14 +37,14 @@ const ProductDetails: React.FC<IProps> = ({ product }) => {
 
     <div className='max-w-max mt-20 rounded-2xl'>
 
-          <section className="bg-gray-50 py-12 px-4 sm:px-8 lg:px-16">
+          <section className="bg-gray-50 py-12 px-4 sm:px-8 lg:px-16 rounded-xl border-gray-300">
           <h2 className="text-2xl sm:text-3xl font-bold text-center mb-10">
             What Our Customers Say
            </h2>
 
-        <div className="flex flex-col sm:flex-row justify-center gap-8 items-center">
+        <div className="flex flex-col sm:flex-row justify-center gap-8 items-center rounded-2xl">
     {/* Testimonial Card */}
-         <div className="bg-white  shadow-md p-6 max-w-md w-full">
+         <div className="bg-white  shadow-md p-6 max-w-md w-full rounded-2xl">
           <div className="flex items-center gap-4 mb-4">
          <img
           src="/rajesh.png" 
@@ -75,8 +75,6 @@ const ProductDetails: React.FC<IProps> = ({ product }) => {
 </section>
 </div>
         </div>
-
-        
     );
 };
 
