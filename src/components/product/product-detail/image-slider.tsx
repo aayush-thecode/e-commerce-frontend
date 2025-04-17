@@ -37,7 +37,7 @@ const ImageSlider:React.FC<IProps> = ({images}) =>{
                     width={1000}
                     height={1000}
                     alt={'product detail image'}
-                    className='min-h-full min-w-full object-cover'
+                    className='w-[400px] h-[400px] object-cover'
                     />
                 </div>
             )

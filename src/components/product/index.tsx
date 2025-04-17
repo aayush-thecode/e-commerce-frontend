@@ -1,4 +1,3 @@
-
 'use client'
 
 import { getProductById } from '@/api/product'
@@ -7,7 +6,8 @@ import React, { useEffect } from 'react'
 import toast from 'react-hot-toast'
 import ImageSlider from './product-detail/image-slider';
 import ProductDetails from './product-detail/product-details';
-import { IProduct } from '@/interface/auth/product.interface'
+import ReviewForm from '../ui/review-form'
+import Reviews from './review/reviews'
 
 interface IProp {
     id:string
@@ -41,20 +41,26 @@ const ProductDetail:React.FC<IProp> = ({id}) => {
 
   
   return (
-    <div className='px-10 py-10 flex gap-10 w-full'>
+    <div className='px-4 mt-15 sm:px-6 md:px-10 py-10 w-full'>
+      <div className='grid grid-cols-1 lg:grid-cols-2 gap-10'>
 
-            {/* Left Side: Image Section */}    
-            <div className='mt-7'>
-                <div className=' mx-auto '>
-                    <ImageSlider images={data?.data?.images} />
-                </div>
-            </div>
+        {/* Left Side: Image + Review */}
+        <div className='flex flex-col items-center lg:items-start'>
+          <div className='w-full max-w-md mx-auto lg:mx-0'>
+            <ImageSlider images={data?.data?.images} />
+          </div>
 
-            {/* Right Side: Product Details */}
-            <div className='flex-1'>
-            <ProductDetails product={data?.data}/>
-            </div>
-            
+          <div className='w-full mt-8'>
+            <ReviewForm productId={id} />
+          </div>
+        </div>
+
+        {/* Right Side: Product Details */}
+        <div className='w-full'>
+          <ProductDetails product={data?.data} />
+          <Reviews productId={id}/>
+        </div>
+      </div>
     </div>
   )
 

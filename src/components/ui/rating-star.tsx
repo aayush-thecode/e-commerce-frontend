@@ -1,34 +1,36 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
+
 'use client'
 
-
-import React, { useEffect } from "react";
-
-
-const  StarRatings =  dynamic(()=> import('react-star-ratings') ,{
-    ssr:false
-})
-
-import dynamic from "next/dynamic";
-
+import { StarRating } from 'react-flexible-star-rating';
+import React ,{useEffect}from "react";
+ 
 interface IProp {
-  rating: number;
+    rating:number
+    onChange:(_: any, value: any)=>void
+    edit?:boolean
 }
+ 
+export const RatingStar:React.FC<IProp> = ({rating,edit=false,onChange}) => {
 
-export const RatingStar: React.FC<IProp> = ({ rating }) => {
-  useEffect(() => {
-    console.log('render', rating);
-  }, [rating]);
+    useEffect(()=>{
+        console.log('render',rating)
+    },[rating])
 
-  return (
-    <div className="flex ">
-      <StarRatings  
-        rating={rating}          
-        starRatedColor="gold"    
-        changeRating={() => {}} 
-        numberOfStars={5}        
-        name="rating"            
-        starDimension="20px"     
-      />
-    </div>
-  );
-};
+
+   
+
+    return(
+      
+        <div className='flex'>
+            <StarRating 
+            isReadOnly={!edit} 
+            dimension={8} 
+            initialRating={rating ?? 0} 
+            isHalfRatingEnabled
+            onRatingChange={(newRating) => onChange(null,newRating)} />
+        </div>
+           
+       
+      );
+}
