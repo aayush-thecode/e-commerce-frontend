@@ -1,9 +1,14 @@
 'use client'
-import React,{useState} from 'react'
+import React,{useEffect, useState} from 'react'
+
+interface IProp {
+  value: number;
+  setValue:(x:number)=> void
+}
 
 
-export const QuantityInput = () => {
-    const [quantity,setQuantity] = useState(1)
+export const QuantityInput:React.FC<IProp> = ({value, setValue}) => {
+    const [quantity,setQuantity] = useState(value)
 
     const increaseQTY = () =>{
         setQuantity(prev => prev + 1)
@@ -17,6 +22,10 @@ export const QuantityInput = () => {
             return 1
         })
     }
+
+    useEffect(()=>{
+      setValue(quantity)
+    },[quantity,setValue])
 
     return(
         <div className="flex items-center space-x-2">

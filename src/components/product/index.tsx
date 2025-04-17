@@ -11,8 +11,6 @@ import { IProduct } from '@/interface/auth/product.interface'
 
 interface IProp {
     id:string
-    product: IProduct
-    
 }
 
 
@@ -34,7 +32,11 @@ const ProductDetail:React.FC<IProp> = ({id}) => {
     },[error,isError])
 
     if(isLoading) {
-        return <div>loading...</div>
+        return <div className='h-[calc(100vh-8.6rem)] w-full flex items-center justify-center'>
+            <p className='text-2xl font-serif text-orange-500'>
+            loading...
+                </p>
+        </div>
       }
 
   

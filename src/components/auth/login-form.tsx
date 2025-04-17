@@ -7,6 +7,7 @@ import { SubmitHandler, useForm } from "react-hook-form";
 import { LuAsterisk } from "react-icons/lu";
 import { loginSchema } from "../../schemas/login.schema";
 import toast from 'react-hot-toast';
+import Cookies from 'js-cookie';
 
 import {
   useMutation,
@@ -37,9 +38,11 @@ const loginPage = () => {
   const { mutate, error, isPending } = useMutation({
     mutationFn: login,
     onSuccess: (response) => {
+
       //Invalidate and refetch 
       console.log('response', response);
       toast.success("Login Successfull!")
+      Cookies.set('access_token', response.token, {expires: 1})
       router.replace('/')
     },
 
