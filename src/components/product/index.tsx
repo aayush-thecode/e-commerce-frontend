@@ -5,7 +5,7 @@ import { useQuery } from '@tanstack/react-query'
 import React, { useEffect } from 'react'
 import toast from 'react-hot-toast'
 import ImageSlider from './product-detail/image-slider';
-import ProductDetails from './product-detail/product-details';
+import ProductDetails from '@/components/product/product-detail/product-details';
 import ReviewForm from '../ui/review-form'
 import Reviews from './review/reviews'
 
@@ -23,6 +23,7 @@ const ProductDetail:React.FC<IProp> = ({id}) => {
 
     console.log(isLoading,data)
 
+
     useEffect(()=>{
         if(isError){
             toast.error(error?.message ??'something went wrong')
@@ -38,6 +39,8 @@ const ProductDetail:React.FC<IProp> = ({id}) => {
                 </p>
         </div>
       }
+
+    console.log(data.data)
 
   
   return (
@@ -67,4 +70,4 @@ const ProductDetail:React.FC<IProp> = ({id}) => {
 
 }
 
-export default ProductDetail
+export default ProductDetail;

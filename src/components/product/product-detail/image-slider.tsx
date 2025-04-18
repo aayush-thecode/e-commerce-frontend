@@ -29,7 +29,8 @@ const ImageSlider:React.FC<IProps> = ({images}) =>{
     return(
         <div className="h-[550px] w-[550px] overflow-hidden">
       <Slider className='h-full' {...settings}>
-        {images.map((image,index) => {
+        {images?.map((image,index) => {
+                console.log(images)
             return(
                 <div  key={index} className='h-[550px] w-[550px] '>
                     <Image
@@ -39,6 +40,7 @@ const ImageSlider:React.FC<IProps> = ({images}) =>{
                     alt={'product detail image'}
                     className='w-[400px] h-[400px] object-cover'
                     />
+                    
                 </div>
             )
         })}
