@@ -1,5 +1,6 @@
 import api from "@/axios/api.axios";
 
+
 export const addToWishlist = async ({
     productId,
   }: {
@@ -22,3 +23,13 @@ export const addToWishlist = async ({
       throw error?.response?.data;
     }
   };
+
+  export const deleteWishlist = async (productId: string) => {
+    try {
+      const res = await api.delete(`/wishlist/remove/${productId}`);
+      return res.data;
+    } catch (error: any) {
+      throw error?.response?.data;
+    }
+  };
+  

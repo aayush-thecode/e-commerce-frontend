@@ -2,6 +2,9 @@
 
 import Head from 'next/head';
 import Image from 'next/image';
+import { getWishlist } from '@/api/wishlist'; 
+import { useEffect, useState } from 'react';
+
 
 const cartItems = [
   {

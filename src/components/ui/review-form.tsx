@@ -9,7 +9,7 @@ import { IReview } from '@/interface/review.interface';
 import { useMutation,useQueryClient } from '@tanstack/react-query';
 import { postReview } from '@/api/review';
 import toast from 'react-hot-toast';
-// import PageLoading from './page-loading';
+
 
 
 
@@ -48,10 +48,6 @@ const ReviewForm:React.FC<IProps> = ({productId}) => {
         mutate({...data,productId})
     }
 
-
-    // if(isPending){
-    //     return <PageLoading/>
-    // }
 
   return (
       <div>

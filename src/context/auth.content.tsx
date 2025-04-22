@@ -6,8 +6,6 @@ import Cookies from 'js-cookie'
 export const AuthContext = createContext<any>(null)
 
 
-
-
 const AuthProvider = ({children}:{children:ReactNode}) =>{
     const [isAuthenticated,setIsAuthenticated] = useState(() => !!Cookies.get('acces_token'))
     const [user,setUser] = useState(null)
@@ -31,7 +29,7 @@ const AuthProvider = ({children}:{children:ReactNode}) =>{
     
 
     return (
-        <AuthContext.Provider value={{isAuthenticated,setIsAuthenticated,setUser,user,logout}}>
+        <AuthContext.Provider value={{isAuthenticated,setUser,user,logout}}>
             {children}
         </AuthContext.Provider>
     )
