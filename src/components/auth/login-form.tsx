@@ -8,6 +8,8 @@ import { LuAsterisk } from "react-icons/lu";
 import { loginSchema } from "../../schemas/login.schema";
 import toast from 'react-hot-toast';
 import Cookies from 'js-cookie';
+import { useAuth } from '@/context/auth.content';
+
 
 import {
   useMutation,
@@ -19,6 +21,7 @@ import { useRouter } from 'next/navigation'
 
 const loginPage = () => {
   const router = useRouter()
+  const {setUser} = useAuth()
 
   const {
     register,
@@ -43,6 +46,8 @@ const loginPage = () => {
       console.log('response', response);
       toast.success("Login Successfull!")
       Cookies.set('access_token', response.token, {expires: 1})
+      localStorage.setItem('user',JSON.stringify(response.user))
+      setUser(response.user)
       router.replace('/')
     },
 

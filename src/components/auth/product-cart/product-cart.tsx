@@ -6,10 +6,11 @@ import { IProduct } from '@/interface/auth/product.interface'
 import Link from 'next/link'
 
 interface IProp {
-  product: IProduct
+  product: IProduct,
+  wishlist?:boolean
 }
 
-const ProductCard: React.FC<IProp> = ({ product }) => {
+const ProductCard: React.FC<IProp> = ({ product, wishlist=false }) => {
   const { coverImage, price, name, _id } = product;
 
   return (
@@ -37,6 +38,7 @@ const ProductCard: React.FC<IProp> = ({ product }) => {
             View Detail
           </button>
         </Link>
+        
       </div>
     </div>
   );

@@ -1,5 +1,7 @@
 'use client'
 
+
+import AuthProvider from './../context/auth.content';
 import {
   QueryClient,
   QueryClientProvider,
@@ -18,7 +20,11 @@ const Providers: React.FC<IProps> = ({ children }) => {
 
   return (
     <QueryClientProvider client = {queryClient}>
+      <AuthProvider>
+      <>
       {children}
+      </>
+      </AuthProvider>
     </QueryClientProvider>
   )
 }

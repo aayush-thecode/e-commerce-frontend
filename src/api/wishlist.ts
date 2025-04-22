@@ -12,4 +12,13 @@ export const addToWishlist = async ({
       throw error?.response?.data;
     }
   };
-  
+
+
+  export const getWishlist = async () => {
+    try {
+      const res = await api.get(`/wishlist`);
+      return res.data;
+    } catch (error: any) {
+      throw error?.response?.data;
+    }
+  };

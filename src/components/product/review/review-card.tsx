@@ -10,7 +10,7 @@ review:IReviews
 const ReviewCard:React.FC<IProps> = ({review}) => {
   const {user,rating,review:comment} = review
   return (
-    <div className='border border-gray-400 bg-white rounded-md tracking-wider p-3 min-h-[100px] max-w-[450px]'>
+    <div className='border border-gray-400 bg-white rounded-md tracking-wider p-3 min-h-[100px] max-w-[450px] '>
       <div className='flex gap-4 w-full'>
             <div className='h-10 w-10 rounded-full border border-orange-400 flex justify-center items-center  text-center'>
                       <p className='text-center text-3xl font-bold  text-gray-500'>{user.firstName.split('')[0]}</p>
