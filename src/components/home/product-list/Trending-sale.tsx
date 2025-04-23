@@ -15,7 +15,9 @@ const TrendingProducts = () => {
   console.log('trending', data, isPending)
 
   useEffect(() => {
-    toast.error(error?.message ?? 'Something went wrong')   
+    if(isError) {
+      toast.error(error?.message ?? 'Something went wrong')   
+    }
   },[error,isError])
 
   return (

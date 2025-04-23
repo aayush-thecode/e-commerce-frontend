@@ -16,13 +16,17 @@ interface IProp {
 const ProductCard: React.FC<IProp> = ({ product, wishlist=false, handleDelete }) => {
   
   const { coverImage, price, name, _id } = product;
-  const fixedImageUrl = coverImage.replace(/\\/g, '/');
+
+  const fixedImageUrl = coverImage?.replace(/\\/g, '/');
+
+  console.log(fixedImageUrl);
 
 
   const imageSrc = coverImage
      ? `${process.env.NEXT_PUBLIC_API_BASE_URL}${fixedImageUrl}`
        : '/products/pashminap.jpg';
 
+       
   return (
     <div className="relative overflow-hidden tracking-wider border border-gray-300 w-fit rounded-xl ml-7 bg-amber-50">
       {/* image */}
