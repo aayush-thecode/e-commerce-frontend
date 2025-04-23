@@ -16,7 +16,12 @@ interface IProp {
 const ProductCard: React.FC<IProp> = ({ product, wishlist=false, handleDelete }) => {
   
   const { coverImage, price, name, _id } = product;
+
   const fixedImageUrl = coverImage.replace(/\\/g, '/');
+
+  const imageSrc = coverImage
+  ? `${process.env.NEXT_PUBLIC_API_BASE_URL}${fixedImageUrl}`
+  : '/products/pashminap.jpg';
 
   return (
     <div className="relative overflow-hidden tracking-wider border border-gray-300 w-fit rounded-xl ml-7 bg-amber-50">
@@ -27,7 +32,7 @@ const ProductCard: React.FC<IProp> = ({ product, wishlist=false, handleDelete })
             className="h-full w-full transition-all object-cover duration-300 hover:scale-[1.1]"
             height={1000}
             width={1000}
-            src={coverImage ? `${process.env.NEXT_PUBLIC_API_BASE_URL}${fixedImageUrl}` : '/products/pashminap.jpg'}
+            src={coverImage ? `${process.env.NEXT_PUBLIC_API_BASE_URL}${imageSrc}` : '/products/pashminap.jpg'}
             alt={name}
           />
         </Link>
