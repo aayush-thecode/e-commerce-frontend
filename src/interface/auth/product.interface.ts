@@ -4,7 +4,6 @@ export interface IProduct {
     coverImage:string;
     images?:string[];
     averageRating:number;
-    createdBy?:any;
     price:string;
     description?:string;
 }

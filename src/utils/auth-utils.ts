@@ -1,3 +1,6 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
+
+
 import { jwtDecode } from 'jwt-decode';
 import Cookies from 'js-cookie';
 

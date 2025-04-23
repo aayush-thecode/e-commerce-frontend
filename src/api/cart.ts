@@ -1,5 +1,6 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
+
 import api from "@/axios/api.axios";
-import { CartResponse } from "@/interface/cart.interface";
 
 export const addToCart = async ({
   productId,
@@ -49,20 +50,3 @@ export const getCartByUserId = async (userId: string, page: number = 1, limit: n
   }
 };
 
-export const updateCartQuantity = async ({
-  productId,
-  quantity,
-}: {
-  productId: string;
-  quantity: number;
-}): Promise<CartResponse> => {
-  try {
-    const response = await api.patch("/cart/update-quantity", {
-      productId,
-      quantity,
-    });
-    return response.data;
-  } catch (error: any) {
-    throw error?.response?.data || error.message;
-  }
-};

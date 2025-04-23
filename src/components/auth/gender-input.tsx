@@ -36,7 +36,7 @@ const GenderInput: React.FC<IProps> = ({ control }) => {
             <Controller
                 name="gender"
                 control={control}
-                render={({ field:{value,...others} }) => {
+                render={({ field:{...others} }) => {
                     return (
                         <>
                             <label>Gender</label>

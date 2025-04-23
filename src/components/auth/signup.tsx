@@ -1,3 +1,5 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
+
 'use client'
 
 import * as React from 'react';
@@ -17,7 +19,7 @@ import { useRouter } from 'next/navigation';
 
 
 
-const signUp = () => {
+const SignUp = () => {
 
   const router = useRouter()
 
@@ -37,7 +39,7 @@ const signUp = () => {
     })
 
     {/* using mutation */}
-    const {mutate, error, isPending} = useMutation({
+    const {mutate,isPending} = useMutation({
         mutationFn:signup,
         onSuccess:(response) => {
             //invalidate and refetched 
@@ -173,4 +175,4 @@ const signUp = () => {
     )
 }
 
-export default signUp;
+export default SignUp;

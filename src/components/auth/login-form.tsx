@@ -1,3 +1,6 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
+
+
 "use client"
 import * as React from 'react';
 
@@ -10,7 +13,6 @@ import toast from 'react-hot-toast';
 import Cookies from 'js-cookie';
 import { useAuth } from '@/context/auth.content';
 
-
 import {
   useMutation,
 } from '@tanstack/react-query'
@@ -18,8 +20,7 @@ import { login } from "../../api/auth";
 import { useRouter } from 'next/navigation'
 
 
-
-const loginPage = () => {
+const LoginPage= () => {
   const router = useRouter()
   const {setUser} = useAuth()
 
@@ -38,7 +39,7 @@ const loginPage = () => {
   });
 
   //Mutation 
-  const { mutate, error, isPending } = useMutation({
+  const { mutate, isPending } = useMutation({
     mutationFn: login,
     onSuccess: (response) => {
 
@@ -123,4 +124,4 @@ const loginPage = () => {
   );
 };
 
-export default loginPage;
+export default LoginPage;

@@ -5,7 +5,6 @@ import Image from 'next/image'
 import { IProduct } from '@/interface/auth/product.interface'
 import Link from 'next/link'
 import { GoTrash } from "react-icons/go";
-import { deleteWishlist } from '@/api/wishlist'
 
 interface IProp {
   product: IProduct,

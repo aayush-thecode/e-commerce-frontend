@@ -7,33 +7,6 @@ import { useQuery } from '@tanstack/react-query'
 import toast from 'react-hot-toast'
 
 
-const products = [
-  {
-    id: '1',
-    coverImage: '/products/pashminap.jpg',
-    name: 'Summer Products',
-    price: 3500
-  },
-  {
-    id: '2',
-    coverImage: '/products/pashmina.webp',
-    name: 'Summer Products',
-    price: 3500
-  },
-  {
-    id: '3',
-    coverImage: '/products/pashminap.jpg',
-    name: 'Summer Products',
-    price: 3500
-  },
-  {
-    id: '4',
-    coverImage: '/products/pashmina.webp',
-    name: 'Summer Products',
-    price: 3500
-  }
-]
-
 const SummerProducts = () => {
 
     const { isPending, data, isError, error } = useQuery({
@@ -43,10 +16,7 @@ const SummerProducts = () => {
     console.log('trending', data, isPending)
   
     useEffect(() => {
-      toast.error
-      {
-        (error?.message ?? 'Something went wrong')
-      }
+      toast.error(error?.message ?? 'Something went wrong')
     },[error,isError])
 
     return(

@@ -7,7 +7,7 @@ import React ,{useEffect}from "react";
  
 interface IProp {
     rating:number
-    onChange:(_: any, value: any)=>void
+    onChange?:(_: any, value: any)=>void
     edit?:boolean
 }
  
@@ -28,7 +28,7 @@ export const RatingStar:React.FC<IProp> = ({rating,edit=false,onChange}) => {
             dimension={8} 
             initialRating={rating ?? 0} 
             isHalfRatingEnabled
-            onRatingChange={(newRating) => onChange(null,newRating)} />
+            onRatingChange={(newRating) => onChange && onChange(null,newRating)} />
         </div>
            
        

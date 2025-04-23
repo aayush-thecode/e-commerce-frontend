@@ -2,8 +2,6 @@
 
 import Head from 'next/head';
 import Image from 'next/image';
-import { getWishlist } from '@/api/wishlist'; 
-import { useEffect, useState } from 'react';
 
 
 const cartItems = [
@@ -36,7 +34,6 @@ const CartPage = () => {
     <>
       <Head>
         <title>Shopping Cart - Nepali Bazar</title>
-        <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet" />
       </Head>
 
       <div className="font-poppins min-h-screen flex-grow">

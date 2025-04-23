@@ -19,10 +19,7 @@ const Wishlist = () => {
         mutationFn: (productId: string) => deleteWishlist(productId),
         onSuccess: () => {
             toast.success("Product removed from wishlist!");
-        },
-        onError: (error) => {
-            toast.error("Failed to remove product from wishlist");
-        },
+        }
     });
     
     const handleDelete = (id: string) => {

@@ -1,5 +1,8 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
+
+
 import { IProduct } from '@/interface/auth/product.interface';
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import ProductTitle from './product-title';
 import { QuantityInput } from '@/components/ui/quantity-input';
 import { addToCart } from '@/api/cart';
@@ -18,7 +21,7 @@ const [quantity, setQuantity] = useState(1)
 // cart mutation 
 
 const {
-  isPending:addToCartPending, mutate:addToCartMutation, error, isError, data
+  isPending:addToCartPending, mutate:addToCartMutation
 
 } = useMutation({
   mutationFn:addToCart,
@@ -43,8 +46,6 @@ const addProductToCart = () => {
 
 const {
   mutate: addToWishlistMutation,
-  isPending: isWishlistLoading,
-  error: wishlistError,
 } = useMutation({
   mutationFn: addToWishlist,
   mutationKey: ['add-to-wishlist'],
