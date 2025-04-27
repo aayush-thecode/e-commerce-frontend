@@ -8,7 +8,7 @@ const nextConfig: NextConfig = {
         protocol: 'https',
         hostname: 'e-commerce-server-4khy.onrender.com',
         port: '',
-        pathname: '**'
+        pathname: '/**'
       }
     ]
   }
