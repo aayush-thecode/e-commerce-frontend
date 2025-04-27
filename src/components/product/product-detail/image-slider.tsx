@@ -6,9 +6,7 @@ import Image from 'next/image'
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
-const Slider = dynamic(() => import('react-slick'), {
-  ssr: false
-});
+const Slider = dynamic(() => import('react-slick'), { ssr: false });
 
 interface IProps {
   images: string[];
@@ -26,27 +24,27 @@ const ImageSlider: React.FC<IProps> = ({ images }) => {
     swipeToSlide: true,
   };
 
+
+  const fixedImages = images.map((img) => {
+    const fixedPath = img.replace(/\\/g, '/'); // replace \ with /
+    return `${process.env.NEXT_PUBLIC_API_BASE_URL}${fixedPath}`;
+  });
+
   return (
     <div className="h-[550px] w-[550px] overflow-hidden">
       <Slider className="h-full" {...settings}>
-        {images?.map((image, index) => {
-          const fixedImageUrl = image.replace(/\\/g, '/');
-          const imageSrc = fixedImageUrl
-            ? `${process.env.NEXT_PUBLIC_API_BASE_URL}${fixedImageUrl}`
-            : '/products/pashminap.jpg';
-
-          return (
-            <div key={index} className="h-[550px] w-[550px]">
-              <Image
-                src={imageSrc}
-                width={1000}
-                height={1000}
-                alt="product detail image"
-                className="w-full h-full object-cover"
-              />
-            </div>
-          );
-        })}
+        {fixedImages.map((imageSrc, index) => (
+          <div key={index} className="h-[550px] w-[550px]">
+            <Image
+              src={imageSrc}
+              width={1000}
+              height={1000}
+              alt="product detail image"
+              className="w-full h-full object-cover"
+              priority={index === 0}
+            />
+          </div>
+        ))}
       </Slider>
     </div>
   );
