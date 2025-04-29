@@ -164,7 +164,7 @@ const SignUp = () => {
 
                 <button 
                 disabled = {isPending}  
-                className='text-lg font-semibold px-4 py-3 bg-blue-500 rounded-md text-white cursor-pointer hover:bg-blue-700 transition-all duration-300 disabled:cursor-not-allowed '
+                className='text-lg font-semibold px-4 py-3 bg-orange-500 rounded-md text-white cursor-pointer hover:bg-orange-700 transition-all duration-300 disabled:cursor-not-allowed '
                 
                 type='submit'>
                     {isPending ? "Signing Up": "Sign Up"} 

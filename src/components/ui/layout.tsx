@@ -16,7 +16,7 @@ const Layout:React.FC<IProps> = ({children}) => {
 
   return (
     
-         <div className='min-h-screen flex flex-col'>
+         <div className='min-h-screen flex flex-col bg-white'>
             {!hideNav && (
               <div>
                 <Header />

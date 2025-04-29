@@ -80,7 +80,7 @@ const LoginPage= () => {
           </div>
           <input
             {...register("email")}
-            className={`text-lg border ${errors.email ? "border-red-500 text-red-500" : "border-gray-300"} p-2 rounded-md placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-400 transition`}
+            className={`text-lg border ${errors.email ? "border-red-500 text-red-500" : "border-gray-300"} p-2 rounded-md placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-orange-400 transition`}
             placeholder="johndoe@gmail.com"
           />
           {errors.email && (
@@ -101,7 +101,7 @@ const LoginPage= () => {
           <input
             type="password"
             {...register("password")}
-            className={`text-lg border ${errors.password ? "border-red-500 text-red-500" : "border-gray-300"} p-2 rounded-md placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-400 transition`}
+            className={`text-lg border ${errors.password ? "border-red-500 text-red-500" : "border-gray-300"} p-2 rounded-md placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-orange-400 transition`}
             placeholder="Enter password"
           />
           {errors.password && (
@@ -115,7 +115,7 @@ const LoginPage= () => {
         <button
           disabled={isPending}
           type="submit"
-          className="text-lg font-semibold px-4 py-3 bg-gradient-to-r from-blue-500 to-indigo-600 rounded-md text-white cursor-pointer hover:bg-blue-700 transition-all duration-300 mt-2 disabled:cursor-not-allowed"
+          className="text-lg font-semibold px-4 py-3 bg-gradient-to-r from-orange-500 to-indigo-600 rounded-md text-white cursor-pointer hover:bg-orange-700 transition-all duration-300 mt-2 disabled:cursor-not-allowed"
         >
           {isPending? 'Loggin...':"Login"}
         </button>
