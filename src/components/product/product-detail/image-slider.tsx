@@ -30,6 +30,7 @@ const ImageSlider: React.FC<IProps> = ({ images }) => {
     <div className="h-[550px] w-[550px] overflow-hidden">
       <Slider className="h-full" {...settings}>
         {images?.map((image, index) => {
+          
           const fixedImageUrl = image.replace(/\\/g, '/');
           const imageSrc = fixedImageUrl
             ? `${process.env.NEXT_PUBLIC_API_BASE_URL}${fixedImageUrl}`

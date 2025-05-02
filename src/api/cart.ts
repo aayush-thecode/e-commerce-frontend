@@ -1,52 +1,46 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-
 import api from "@/axios/api.axios";
 
-export const addToCart = async ({
-  productId,
-  quantity,
-}: {
+//post cart
+export const addToCart = async (data: {
   productId: string;
   quantity: number;
 }) => {
   try {
-    const res = await api.post("/cart/add", {
-      productId,
-      quantity,
-    });
-    return res.data;
-    
-  } catch (error: any) {
-    throw error?.response?.data;
-  }
-};
-
-export const clearCart = async (userId: string) => {
-  try {
-    const response = await api.delete(`/cart/clear/${userId}`);
+    const response = await api.post("/cart/add", data);
     return response.data;
   } catch (error: any) {
     throw error?.response?.data;
   }
 };
 
-export const removeItemFromCart = async (userId: string, productId: string) => {
+//get users cart item
+export const getCart = async (userId:string) => {
   try {
-    const response = await api.delete(`/cart/remove/${userId}/${productId}`);
+    const response = await api.get(`/cart/${userId}`);
+    console.log("Cart fetched successfully:", response.data);
     return response.data;
   } catch (error: any) {
-    throw error?.response?.data;
+    throw error?.response?.data || "Failed to fetch cart";
   }
 };
 
-export const getCartByUserId = async (userId: string, page: number = 1, limit: number = 10) => {
+//remove one item from cart
+export const removeItemFromCart = async (productId: string) => {
   try {
-    const response = await api.get(`/cart/${userId}`, {
-      params: { page, limit }, 
-    });
-    return response.data; 
+    const response = await api.delete(`/cart/remove/${productId}`);
+    return response.data;
   } catch (error: any) {
-    throw error?.response?.data || error; 
+    throw error?.response?.data || "Failed to remove item from cart";
   }
 };
 
+//delete the entire cart
+export const deleteCart = async () => {
+  try {
+    const response = await api.delete("/cart/clear");
+    return response.data;
+  } catch (error: any) {
+    throw error?.response?.data || "Failed to delete cart";
+  }
+};

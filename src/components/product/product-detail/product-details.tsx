@@ -87,7 +87,7 @@ const addProductToWishlist = () => {
         >
           Add to cart
         </button>
-        <button className="px-4 py-2 w-1/2 md:max-w-[300px] cursor-pointer text-lg font-bold tracking-wider text-orange-500 border border-orange-500 rounded-md hover:ge-orange-500 disabled:cursor-not-allowed disabled:bg-orange-400"
+        <button className="px-4 py-2 w-1/2 md:max-w-[300px] cursor-pointer text-lg font-bold tracking-wider text-orange-500 border border-orange-500 rounded-md hover:bg-orange-500 disabled:cursor-not-allowed disabled:bg-orange-400"
         onClick={addProductToWishlist} >
           Add to wishlist
         </button>

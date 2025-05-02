@@ -7,7 +7,7 @@ export const AuthContext = createContext<any>(null)
 
 
 const AuthProvider = ({children}:{children:ReactNode}) =>{
-    const [isAuthenticated,setIsAuthenticated] = useState(() => !!Cookies.get('acces_token'))
+    const [isAuthenticated,setIsAuthenticated] = useState(() => !!Cookies.get('access_token'))
     const [user,setUser] = useState(null)
 
     useEffect(() =>{
