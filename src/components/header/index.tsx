@@ -7,6 +7,7 @@ import { BsCart3 } from 'react-icons/bs';
 import { IoPersonOutline } from 'react-icons/io5';
 import Image from 'next/image';
 import { HiOutlineMenu, HiOutlineX } from 'react-icons/hi';
+
 import { useAuth } from '@/context/auth.content';
 
 const Header = () => {

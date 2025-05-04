@@ -17,7 +17,8 @@ const ProductCard: React.FC<IProp> = ({ product, wishlist=false, handleDelete })
   
   const { coverImage, price, name, _id } = product;
 
-  const fixedImageUrl = coverImage?.replace(/\\/g, '/');
+  const fixedImageUrl = typeof coverImage === 'string' ? coverImage.replace(/\\/g, '/') : '';
+
 
   console.log(fixedImageUrl);
 
