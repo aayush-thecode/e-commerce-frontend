@@ -1,18 +1,22 @@
 'use client';
 
 import Link from 'next/link';
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { CiHeart } from 'react-icons/ci';
 import { BsCart3 } from 'react-icons/bs';
 import { IoPersonOutline } from 'react-icons/io5';
 import Image from 'next/image';
 import { HiOutlineMenu, HiOutlineX } from 'react-icons/hi';
-
 import { useAuth } from '@/context/auth.content';
 
 const Header = () => {
   const [menuOpen, setMenuOpen] = useState(false);
+  const [mounted, setMounted] = useState(false);
   const { isAuthenticated, logout } = useAuth();
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
 
   return (
     <header className="shadow bg-white">
@@ -57,7 +61,7 @@ const Header = () => {
 
         {/* Right section (Desktop only) */}
         <div className="hidden lg:flex items-center gap-4">
-          {isAuthenticated ? (
+          {mounted && isAuthenticated ? (
             <>
               <Link href="/wishlist">
                 <CiHeart className="text-gray-600 font-bold transition-all duration-300 hover:scale-110" size={28} />
@@ -73,7 +77,7 @@ const Header = () => {
                 Logout
               </button>
             </>
-          ) : (
+          ) : mounted ? (
             <>
               <Link href="/login">
                 <button className="cursor-pointer text-lg font-semibold border border-orange-500 text-orange-500 px-3 py-2 min-w-[100px] rounded-md">
@@ -86,7 +90,7 @@ const Header = () => {
                 </button>
               </Link>
             </>
-          )}
+          ) : null}
         </div>
       </div>
 
@@ -104,37 +108,39 @@ const Header = () => {
           </Link>
 
           {/* Right icons in mobile */}
-          <div className="flex gap-4 pt-4">
-            {isAuthenticated ? (
-              <>
-                <Link href="/wishlist" onClick={() => setMenuOpen(false)}>
-                  <CiHeart className="text-gray-700" size={24} />
-                </Link>
-                <Link href="/cart" onClick={() => setMenuOpen(false)}>
-                  <BsCart3 className="text-gray-700" size={20} />
-                </Link>
-                <IoPersonOutline className="text-gray-700" size={20} />
-                <button
-                  onClick={() => {
-                    logout();
-                    setMenuOpen(false);
-                  }}
-                  className="text-red-500 text-sm font-semibold ml-2"
-                >
-                  Logout
-                </button>
-              </>
-            ) : (
-              <>
-                <Link href="/login" onClick={() => setMenuOpen(false)} className="text-orange-500">
-                  Login
-                </Link>
-                <Link href="/sign-up" onClick={() => setMenuOpen(false)} className="text-orange-500">
-                  Register
-                </Link>
-              </>
-            )}
-          </div>
+          {mounted && (
+            <div className="flex gap-4 pt-4">
+              {isAuthenticated ? (
+                <>
+                  <Link href="/wishlist" onClick={() => setMenuOpen(false)}>
+                    <CiHeart className="text-gray-700" size={24} />
+                  </Link>
+                  <Link href="/cart" onClick={() => setMenuOpen(false)}>
+                    <BsCart3 className="text-gray-700" size={20} />
+                  </Link>
+                  <IoPersonOutline className="text-gray-700" size={20} />
+                  <button
+                    onClick={() => {
+                      logout();
+                      setMenuOpen(false);
+                    }}
+                    className="text-red-500 text-sm font-semibold ml-2"
+                  >
+                    Logout
+                  </button>
+                </>
+              ) : (
+                <>
+                  <Link href="/login" onClick={() => setMenuOpen(false)} className="text-orange-500">
+                    Login
+                  </Link>
+                  <Link href="/sign-up" onClick={() => setMenuOpen(false)} className="text-orange-500">
+                    Register
+                  </Link>
+                </>
+              )}
+            </div>
+          )}
         </div>
       )}
     </header>
