@@ -3,7 +3,7 @@
 'use client'
 
 import React from 'react'
-import ProductCard from '../auth/product-cart/product-cart'
+import ProductCard from '../product/product-detail/product-cart'
 interface IProp {
     title: string,
     products: any[],

@@ -5,7 +5,7 @@ import { useMutation, useQuery } from '@tanstack/react-query'
 import React from 'react'
 import PageLoading from '../ui/page-loading'
 import { IProduct } from '@/interface/auth/product.interface'
-import ProductCard from '../auth/product-cart/product-cart'
+import ProductCard from '../product/product-detail/product-cart'
 import toast from 'react-hot-toast'
 
 const Wishlist = () => {
