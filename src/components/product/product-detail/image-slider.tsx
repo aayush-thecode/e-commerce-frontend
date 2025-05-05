@@ -5,13 +5,15 @@ import dynamic from 'next/dynamic'
 import Image from 'next/image'
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+import { IImage } from './../../../interface/auth/product.interface';
 
 const Slider = dynamic(() => import('react-slick'), {
   ssr: false
+
 });
 
 interface IProps {
-  images: string[];
+  images: IImage[];
 }
 
 const ImageSlider: React.FC<IProps> = ({ images }) => {
@@ -30,16 +32,12 @@ const ImageSlider: React.FC<IProps> = ({ images }) => {
     <div className="h-[550px] w-[550px] overflow-hidden">
       <Slider className="h-full" {...settings}>
         {images?.map((image, index) => {
-          
-          const fixedImageUrl = image.replace(/\\/g, '/');
-          const imageSrc = fixedImageUrl
-            ? `${process.env.NEXT_PUBLIC_API_BASE_URL}${fixedImageUrl}`
-            : '/products/pashminap.jpg';
+
 
           return (
             <div key={index} className="h-[550px] w-[550px]">
               <Image
-                src={imageSrc}
+                src={image.path}
                 width={1000}
                 height={1000}
                 alt="product detail image"

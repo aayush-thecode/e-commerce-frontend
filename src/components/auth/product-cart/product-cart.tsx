@@ -15,17 +15,7 @@ interface IProp {
 
 const ProductCard: React.FC<IProp> = ({ product, wishlist=false, handleDelete }) => {
   
-  const { coverImage, price, name, _id } = product;
-
-  const fixedImageUrl = typeof coverImage === 'string' ? coverImage.replace(/\\/g, '/') : '';
-
-
-  console.log(fixedImageUrl);
-
-
-  const imageSrc = coverImage
-     ? `${process.env.NEXT_PUBLIC_API_BASE_URL}${fixedImageUrl}`
-       : '/products/pashminap.jpg';
+  const { coverImage, price, name, _id,  } = product;
 
        
   return (
@@ -37,7 +27,7 @@ const ProductCard: React.FC<IProp> = ({ product, wishlist=false, handleDelete })
             className="h-full w-full transition-all object-cover duration-300 hover:scale-[1.1]"
             height={1000}
             width={1000}
-            src={imageSrc}
+            src={coverImage.path}
             alt={name}
           />
         </Link>

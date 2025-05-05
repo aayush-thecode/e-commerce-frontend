@@ -9,6 +9,12 @@ const nextConfig: NextConfig = {
         hostname: 'e-commerce-server-4khy.onrender.com',
         port: '',
         pathname: '/**'
+      },      
+      {
+        protocol: 'https',
+        hostname: 'res.cloudinary.com',
+        port: '',
+        pathname: '/**'
       }
     ]
   }
