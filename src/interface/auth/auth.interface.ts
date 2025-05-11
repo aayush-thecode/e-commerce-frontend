@@ -16,5 +16,4 @@ export interface ISignUp {
         value?:string,
     },
     confirm_password: string;
-    
 }
