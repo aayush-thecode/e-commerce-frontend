@@ -1,6 +1,5 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 
-
 export interface IReview {
     rating: number;
     review: string;
